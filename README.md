@@ -1,4 +1,4 @@
-# alias-site
+# alias-website
 
 Landing di Alias, pubblicata su https://alias-ai.it tramite Vercel. Ogni push su `main` va in produzione; ogni altro branch ha un'anteprima.
 
