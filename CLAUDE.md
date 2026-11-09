@@ -9,8 +9,8 @@ Repo pubblico: niente dati di clienti, note interne o chiavi.
 | Repo | Cosa | Chi |
 |---|---|---|
 | `alias-hq` | tutto quello che non è codice: legale, clienti, meeting, brand, pipeline di vendita. Regole complete nel suo `CLAUDE.md` | tutti |
-| `alias-filtro` | filtro locale e banco di prova | Marco, Gabe |
-| `alias-prodotto` | LibreChat modificato, app desktop, server degli studi (`alias/infra/`) | Ale |
+| `alias-filtro` | filtro locale e banco di prova | Gabe |
+| `alias-prodotto` | LibreChat modificato, app desktop, server degli studi (`alias/infra/`) | Marco |
 | `alias-website` | alias-ai.it su Vercel, `main` = produzione | Ale |
 
 I repo si clonano uno accanto all'altro (`~/Code/alias/`), mai dentro OneDrive o Google Drive.
