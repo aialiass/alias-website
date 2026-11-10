@@ -252,6 +252,7 @@ a { color: inherit; }
 
 /* ---------- studi ---------- */
 .logos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.logos[hidden] { display: none; }
 .slot { min-height: 112px; border-radius: 18px; background: var(--bg); box-shadow: var(--card-shadow), 0 0 0 1px var(--line); display: grid; place-items: center; padding: 16px; text-align: center; font-family: var(--brand); font-weight: 700; font-size: 18px; color: var(--soft); }
 .slot img { max-width: 100%; max-height: 56px; object-fit: contain; }
 .slot.empty { box-shadow: none; border: 1.5px dashed var(--line-strong); color: var(--muted); font-weight: 600; font-size: 16px; }
@@ -456,7 +457,7 @@ window.va("beforeSend", function (e) { try { if (localStorage.getItem("va-disabl
         </div>
         <p class="lead">Stiamo scegliendo gli studi con cui provare Alias, tra commercialisti e consulenti. Partiamo da come lavorate oggi: quali documenti usate e quali dati non devono uscire.</p>
       </div>
-      <div class="logos" id="logos"></div>
+      <div class="logos" id="logos" hidden></div>
       <div class="studi-cta"><a class="btn ghost" href="#prova">Iscrivi il tuo studio</a></div>
     </section>
 
@@ -525,6 +526,8 @@ window.va("beforeSend", function (e) { try { if (localStorage.getItem("va-disabl
 
   /* ---------------------------------------------------------------- configurazione
      CLIENTS: studi da mostrare, solo con il loro consenso scritto. Nome e, se c'è, logo in data URI.
+     Finché è vuoto la griglia resta nascosta (riquadri tutti vuoti direbbero che non c'è nessuno); con il
+     primo studio compare, insieme ai posti liberi fino a SLOTS.
      SIGNUP_ENDPOINT: indirizzo che riceve le iscrizioni con un POST JSON (per esempio un Worker Cloudflare).
      Finché è vuoto, il modulo non invia niente e rimanda all'email di contatto. */
   const CLIENTS = [
@@ -545,7 +548,9 @@ window.va("beforeSend", function (e) { try { if (localStorage.getItem("va-disabl
 
   /* ---------------------------------------------------------------- studi */
   function renderClients() {
+    if (!CLIENTS.length) return;
     const box = $("logos");
+    box.hidden = false;
     for (const c of CLIENTS) {
       const s = el("div", "slot");
       if (c.logo) { const img = el("img"); img.src = c.logo; img.alt = c.name; s.append(img); }
@@ -559,7 +564,7 @@ window.va("beforeSend", function (e) { try { if (localStorage.getItem("va-disabl
       s.append(t);
       box.append(s);
     }
-    if (CLIENTS.length) $("studi-title").textContent = "Gli studi che usano Alias.";
+    $("studi-title").textContent = "Gli studi che usano Alias.";
   }
 
   /* ---------------------------------------------------------------- chat animata (dati inventati) */
