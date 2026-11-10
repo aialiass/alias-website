@@ -4,11 +4,12 @@ Landing di Alias, pubblicata su https://alias-ai.it tramite Vercel. Ogni push su
 
 Pagine statiche, nessuna build:
 - `index.html` homepage, con il modulo "Prova Alias"
-- `come-funziona.html`, `team.html`, `privacy.html`
+- `come-funziona.html`, `domande.html`, `team.html`, `privacy.html`
+- `aziende/index.html` (alias-ai.it/aziende/) la pagina per le aziende più grandi, che vogliono uno strumento su misura: sta in una sottocartella, quindi usa percorsi assoluti come la 404. Il contatto è un mailto nella fascia finale
 - `404.html` pagina di errore: usa percorsi assoluti, perché viene servita a qualsiasi indirizzo
 - `escludimi.html` pagina per il team, non linkata: aperta una volta da un browser, quel browser non viene più contato dalle statistiche di visita (Vercel Web Analytics, attivo dal 26/10/2026)
 - `favicon.svg`, `robots.txt`, `sitemap.xml`
-- `font/` il Bricolage Grotesque condiviso dalle pagine, `img/` le foto del team (dal deck TEF) e `og.png`, l'anteprima dei link (1200×630)
+- `font/` il Bricolage Grotesque condiviso dalle pagine, `img/` le foto del team (dal deck TEF) e le anteprime dei link (1200×630): `og.png` per tutte le pagine, `og-aziende.png` per /aziende/
 - `api/iscrizione.js` funzione Vercel che riceve il modulo e lo salva su Supabase
 
 ## Modulo di iscrizione
